@@ -30,11 +30,12 @@ class App extends Component {
   addRecipe(recipe) {
 
     const recipes = {...this.state.recipes};
-    const timestamp = Date.now();
 
-    recipes[`${timestamp}`] = recipe;
-    this.setState({recipes});
+    var idx = Object.keys(recipes).length
+    recipes[`recipe-${idx}`] = recipe
+    
 
+    this.setState({recipes})
   }
   
   render() {
@@ -48,7 +49,7 @@ class App extends Component {
           textAlign='center'
         />
 
-        <List recipies={this.state.ceipes} />
+        <List recipes={this.state.recipes} />
 
         <Divider section />
 

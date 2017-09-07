@@ -20,6 +20,8 @@ class Recipe extends Component {
     }
 
     this.props.addRecipe(recipe)
+    
+    // Todo : Reset form values
   }
 
   render() {
