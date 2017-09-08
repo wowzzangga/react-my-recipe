@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
-  Header, Divider,
+  Header, Divider
 } from 'semantic-ui-react'
 
-import List from './List';
-import Recipe from './Recipe';
+import List from './List'
+import Recipe from './Recipe'
+import MenuBar from './Menu'
 
 import './App.css';
 
@@ -55,7 +56,7 @@ class App extends Component {
 
         <Recipe addRecipe={this.addRecipe} />
         
-
+        <MenuBar />        
       </div>
     );
   }

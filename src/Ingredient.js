@@ -11,7 +11,7 @@ class Ingredient extends Component {
             fluid
             placeholder='Ingredients'
             name='ingredients' value={this.props.details} onChange={this.props.handleChange}
-        />
+        />   
     )
   }
 }
