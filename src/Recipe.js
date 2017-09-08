@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {
   Container, Grid, Segment, Button, Form
 } from 'semantic-ui-react'
+import Ingredient from './Ingredient'
 
 
 class Recipe extends Component {
@@ -42,11 +43,7 @@ class Recipe extends Component {
                   placeholder='Title'
                   name='title' value={title} onChange={this.handleChange}
                 />
-                <Form.Input
-                  fluid
-                  placeholder='Ingredients'
-                  name='ingredients' value={ingredients} onChange={this.handleChange}
-                />
+                <Ingredient details={ingredients} handleChange={this.handleChange} />
                 <Form.TextArea
                   placeholder='Method'
                   name='method' value={method} onChange={this.handleChange}
