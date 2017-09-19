@@ -16,28 +16,19 @@ class List extends Component {
   render() {
     const { recipes } = this.props;
 
+    const panels = Object.keys(recipes)
+                    .map(key => ({
+                      key: `panel-${key}`,
+                      title: recipes[key].title,
+                      content: (
+                        <ListContent details={recipes[key]} />
+                      ),
+                    })
+                  )
+
     return (
       <Container text>
-        {
-          Object.keys(recipes)
-          .map(key => 
-              <Accordion styled key={key} style={style.w100}> 
-                <Accordion.Title>
-                  <Grid>
-                    <Grid.Column floated='left' width={9}>
-                      {recipes[key].title}
-                    </Grid.Column>
-                    <Grid.Column floated='right' width={1}>
-                      <Icon name='chevron down' />               
-                    </Grid.Column>
-                  </Grid>
-                </Accordion.Title>
-                <Accordion.Content>
-                  <ListContent details={recipes[key]} />
-                </Accordion.Content>
-              </Accordion>
-          )
-        }
+          <Accordion styled panels={panels} />
       </Container>
     )
   }
