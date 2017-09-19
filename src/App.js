@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-  Header, Divider
+  Header
 } from 'semantic-ui-react'
 
 import Samples from './sample'

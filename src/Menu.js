@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Container, Menu, Icon, Button
+  Container, Menu, Icon
 } from 'semantic-ui-react'
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-  Container, Segment, Grid, Icon, Accordion
+  Container, Grid, Icon, Accordion
 } from 'semantic-ui-react'
 
 import ListContent from './ListContent'

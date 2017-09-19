@@ -13,6 +13,10 @@ class ListContent extends Component {
       <List.Item key={item}>{item}</List.Item> 
     );
 
+    const tags = details.tag.map((tag) => 
+      <List.Item key={tag}>#{tag}</List.Item> 
+    )
+
     return (
         <Item.Group>
             <Item>
@@ -28,6 +32,14 @@ class ListContent extends Component {
                     <Item.Header>Method</Item.Header>
                     <Item.Description>{details.method}</Item.Description>
                 </Item.Content>
+            </Item>
+            <Item>
+            <Item.Content>
+                <Item.Header>Tags</Item.Header>
+                <Item.Description>
+                    <List horizontal>{tags}</List>
+                </Item.Description>
+            </Item.Content>
         </Item>
         </Item.Group>
     )
