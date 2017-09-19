@@ -54,7 +54,6 @@ class Recipe extends Component {
             </Grid.Column>
           </Grid>
         </Container>
-        
     );
   }
 }

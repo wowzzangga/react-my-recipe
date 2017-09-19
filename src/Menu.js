@@ -13,7 +13,7 @@ class MenuBar extends Component {
                     <Menu.Item as='a' header>
                         <Icon name='food' />My Recipe
                     </Menu.Item>
-                    <Menu.Item position='right' href='/'>
+                    <Menu.Item position='right' href='/recipe/new'>
                         <Icon name='edit' />
                     </Menu.Item>
                 </Container>

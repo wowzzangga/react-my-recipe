@@ -3,8 +3,9 @@ import {
   Header, Divider
 } from 'semantic-ui-react'
 
+import Samples from './sample'
 import List from './List'
-import Recipe from './Recipe'
+import AddRecipe from './AddRecipe'
 import MenuBar from './Menu'
 
 import './App.css';
@@ -20,12 +21,15 @@ class App extends Component {
 
   constructor() {
     super()
+    
     this.addRecipe = this.addRecipe.bind(this)
 
     // getInitialState
     this.state = {
-      recipes : {},
+      //recipes : {},
+      recipes : Samples
     }
+
   }
 
   addRecipe(recipe) {
@@ -52,10 +56,8 @@ class App extends Component {
 
         <List recipes={this.state.recipes} />
 
-        <Divider section />
+        <AddRecipe addRecipe={this.addRecipe} />
 
-        <Recipe addRecipe={this.addRecipe} />
-        
         <MenuBar />        
       </div>
     );
