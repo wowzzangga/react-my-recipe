@@ -9,11 +9,11 @@ class ListContent extends Component {
   render() {
     const { details } = this.props;
 
-    const listItems = details.ingredient.map((item) =>
+    const Ingredients = details.ingredient.map((item) =>
       <List.Item key={item}>{item}</List.Item> 
     );
 
-    const tagData = (typeof details.tag == 'undefined') ? [] : details.tag; 
+    const tagData = (typeof details.tag === 'undefined') ? [] : details.tag; 
     const tags = tagData.map((tag) => 
         <List.Item key={tag}>#{tag}</List.Item> 
     )
@@ -22,9 +22,9 @@ class ListContent extends Component {
         <Item.Group>
             <Item>
                 <Item.Content>
-                    <Item.Header>Ingredient</Item.Header>
+                    <Item.Header>Ingredients</Item.Header>
                     <Item.Description>
-                        <List>{listItems}</List>
+                        <List>{Ingredients}</List>
                     </Item.Description>  
                 </Item.Content>
             </Item>

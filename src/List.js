@@ -1,15 +1,9 @@
 import React, { Component } from 'react'
 import {
-  Container, Grid, Icon, Accordion
+  Container, Accordion
 } from 'semantic-ui-react'
 
 import ListContent from './ListContent'
-
-const style = {
-  w100: {
-    width: '100%',
-  },
-}
 
 class List extends Component {
 
@@ -21,7 +15,7 @@ class List extends Component {
                       key: `panel-${key}`,
                       title: recipes[key].title,
                       content: (
-                        <ListContent details={recipes[key]} />
+                        <ListContent key={key} details={recipes[key]} />
                       ),
                     })
                   )
