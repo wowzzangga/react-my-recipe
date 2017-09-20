@@ -16,7 +16,7 @@ module.exports = {
       title: 'Lobster',
       ingredient: ['Lobster'],
       method: 'These tender, mouth-watering beauties are a fantastic hit at any dinner party.',
-      tag: [],
+      tag: [''],
     },
   
     recipe3: {

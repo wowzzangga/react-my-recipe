@@ -13,8 +13,9 @@ class ListContent extends Component {
       <List.Item key={item}>{item}</List.Item> 
     );
 
-    const tags = details.tag.map((tag) => 
-      <List.Item key={tag}>#{tag}</List.Item> 
+    const tagData = (typeof details.tag == 'undefined') ? [] : details.tag; 
+    const tags = tagData.map((tag) => 
+        <List.Item key={tag}>#{tag}</List.Item> 
     )
 
     return (

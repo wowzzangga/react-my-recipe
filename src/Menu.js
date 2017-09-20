@@ -7,13 +7,14 @@ import {
 class MenuBar extends Component {
     
     render() {
+        
         return(
             <Menu fixed='bottom' inverted>
                 <Container text>
                     <Menu.Item as='a' header>
                         <Icon name='food' />My Recipe
                     </Menu.Item>
-                    <Menu.Item position='right' href='/recipe/new'>
+                    <Menu.Item position='right' onClick={this.props.loadSamples} >
                         <Icon name='edit' />
                     </Menu.Item>
                 </Container>

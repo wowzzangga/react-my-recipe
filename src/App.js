@@ -7,6 +7,7 @@ import Samples from './sample'
 import List from './List'
 import AddRecipe from './AddRecipe'
 import MenuBar from './Menu'
+import base from './base'
 
 import './App.css';
 
@@ -26,11 +27,26 @@ class App extends Component {
 
     // getInitialState
     this.state = {
-      //recipes : {},
-      recipes : Samples
+      recipes : {},
     }
-
   }
+
+  componentWillMount() {
+    this.ref = base.syncState(`MyRecipes`, {
+      context: this,
+      state: 'recipes',
+    });
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
+
+  loadSamples = () => {
+    this.setState({
+      recipes: Samples
+    });
+  };
 
   addRecipe(recipe) {
 
@@ -58,7 +74,7 @@ class App extends Component {
 
         <AddRecipe addRecipe={this.addRecipe} />
 
-        <MenuBar />        
+        <MenuBar loadSamples={this.loadSamples} />        
       </div>
     );
   }
