@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import {
-  Item, List, Form, Label, Icon
+  Item, List, Form, Label, Icon, Divider, Button
 } from 'semantic-ui-react'
 
 class ListContent extends Component {
@@ -20,15 +20,6 @@ class ListContent extends Component {
         );
 
         const tagData = (typeof details.tag === 'undefined') ? [] : details.tag; 
-        /*
-        const tags = tagData.map((tag) => 
-            <Label key={tag} as='a'>
-                <Icon name='tag' />
-                {tag}
-                <Icon name='delete' />
-            </Label>
-        )*/
-
 
         if (editId === itemId) {
             return (
@@ -79,6 +70,7 @@ class ListContent extends Component {
         } else {
 
             return (
+            <div>
                 <Item.Group>
                     <Item>
                         <Item.Content>
@@ -110,6 +102,12 @@ class ListContent extends Component {
                         </Item.Content>
                     </Item>
                 </Item.Group>
+                <Divider horizontal section>EDIT</Divider>
+                <Button icon>
+                    <Icon name="trash" onClick={() => this.props.removeRecipe(itemId)} />
+                 </Button>
+            </div>
+                
             )
         }
     }

@@ -37,6 +37,7 @@ class List extends Component {
                           details={recipes[key]} 
                           toggleEditing={this.props.toggleEditing} 
                           updateRecipe={this.props.updateRecipe}
+                          removeRecipe={this.props.removeRecipe}
                           handleEditField={this.handleEditField}
                           editId={editId} 
                         />

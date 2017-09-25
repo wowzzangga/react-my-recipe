@@ -63,6 +63,13 @@ class App extends Component {
       this.setState({ recipes });
     };
 
+    removeRecipe = (key) => {
+      const recipes = {...this.state.recipes};
+      recipes[key] = null;
+
+      this.setState({ recipes });
+    };
+
     addRecipe(recipe) {
 
       const recipes = {...this.state.recipes};
@@ -88,6 +95,7 @@ class App extends Component {
             editId={this.state.editId} 
             toggleEditing={this.toggleEditing} 
             updateRecipe={this.updateRecipe}
+            removeRecipe={this.removeRecipe}
           />
 
           <AddRecipe addRecipe={this.addRecipe} />
