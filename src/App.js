@@ -5,7 +5,6 @@ import {
 
 import Samples from './sample'
 import List from './List'
-import AddRecipe from './AddRecipe'
 import MenuBar from './Menu'
 import base from './base'
 
@@ -23,7 +22,6 @@ class App extends Component {
     constructor() {
       super()
     
-      this.addRecipe = this.addRecipe.bind(this)
       this.toggleEditing = this.toggleEditing.bind(this)
 
       // getInitialState
@@ -69,16 +67,6 @@ class App extends Component {
 
       this.setState({ recipes });
     };
-
-    addRecipe(recipe) {
-
-      const recipes = {...this.state.recipes};
-
-      var idx = Object.keys(recipes).length
-      recipes[`recipe-${idx}`] = recipe
-      
-      this.setState({recipes})
-    }
   
     render() {
 
@@ -97,8 +85,6 @@ class App extends Component {
             updateRecipe={this.updateRecipe}
             removeRecipe={this.removeRecipe}
           />
-
-          <AddRecipe addRecipe={this.addRecipe} />
 
           <MenuBar loadSamples={this.loadSamples} />        
         </div>

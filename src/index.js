@@ -8,7 +8,6 @@ import {
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 import App from './App';
-import RecipeDetail from './RecipeDetail';
 import registerServiceWorker from './registerServiceWorker';
 
 const Root = () => {
@@ -16,7 +15,6 @@ const Root = () => {
         <Router>
             <div>
                 <Route exact path="/" component={App} />
-                <Route path="/recipe/:id" component={RecipeDetail} />
           </div>
         </Router>
     )
