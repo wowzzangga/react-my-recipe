@@ -9,7 +9,7 @@ class MenuBar extends Component {
     render() {
         
         return(
-            <Menu fixed='bottom' inverted>
+            <Menu fixed='top' inverted>
                 <Container text>
                     <Menu.Item as='a' header>
                         <Icon name='food' />My Recipe

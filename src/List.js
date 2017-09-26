@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-  Container, Accordion
+  Container, Item, Form
 } from 'semantic-ui-react'
 
 import ListContent from './ListContent'
@@ -27,27 +27,27 @@ class List extends Component {
   render() {
     const { recipes, editId } = this.props;
 
-    const panels = Object.keys(recipes)
-                    .map(key => ({
-                      key: `panel-${key}`,
-                      title: recipes[key].title,
-                      content: (
-                        <ListContent 
-                          itemId={key} 
-                          details={recipes[key]} 
-                          toggleEditing={this.props.toggleEditing} 
-                          updateRecipe={this.props.updateRecipe}
-                          removeRecipe={this.props.removeRecipe}
-                          handleEditField={this.handleEditField}
-                          editId={editId} 
-                        />
-                      ),
-                    })
-                  )
-
     return (
-      <Container text>
-          <Accordion styled panels={panels} />
+      <Container text style={{ marginTop: '5em' }}>
+        <Form size="large">
+          <Item.Group divided>
+          {
+            Object.keys(recipes).map(key => 
+            <Item key={key}>
+                <ListContent 
+                  itemId={key} 
+                  details={recipes[key]} 
+                  toggleEditing={this.props.toggleEditing} 
+                  updateRecipe={this.props.updateRecipe}
+                  removeRecipe={this.props.removeRecipe}
+                  handleEditField={this.handleEditField}
+                  editId={editId} 
+                />
+            </Item>
+            )
+          }
+          </Item.Group>
+        </Form>
       </Container>
     )
   }

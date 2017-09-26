@@ -3,3 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.description.recipe-list-container {
+  margin-top: 1.5em !important;
+}

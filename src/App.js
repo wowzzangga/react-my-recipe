@@ -10,13 +10,6 @@ import base from './base'
 
 import './App.css';
 
-
-const style = {
-  h1: {
-    marginTop: '3em',
-  },
-}
-
 class App extends Component {
 
     constructor() {
@@ -72,21 +65,15 @@ class App extends Component {
 
       return (
         <div>
-          <Header
-            as='h1'
-            content='My Recipes'
-            style={style.h1}
-            textAlign='center'
-          />
-
-          <List recipes={this.state.recipes} 
+          <MenuBar loadSamples={this.loadSamples} />        
+          <List
+            recipes={this.state.recipes} 
             editId={this.state.editId} 
             toggleEditing={this.toggleEditing} 
             updateRecipe={this.updateRecipe}
             removeRecipe={this.removeRecipe}
           />
 
-          <MenuBar loadSamples={this.loadSamples} />        
         </div>
       );
     }
