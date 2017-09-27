@@ -1,8 +1,4 @@
 import React, { Component } from 'react'
-import {
-  Header
-} from 'semantic-ui-react'
-
 import Samples from './sample'
 import List from './List'
 import MenuBar from './Menu'
@@ -61,6 +57,20 @@ class App extends Component {
       this.setState({ recipes });
     };
   
+    addRecipe = (recipe) => {
+      const recipes = {...this.state.recipes};
+      let idx = 1;
+      
+      if (Object.keys(recipes).length !== 0) {
+        const lastKey = Object.keys(recipes).reduce(function(a, b){ return recipes[a] > recipes[b] ? a : b });
+        const maxIdx = lastKey.split('_');
+        idx = parseInt(maxIdx[1], 10) + 1;
+      }
+
+      recipes[`recipe_${idx}`] = recipe;
+      this.setState({ recipes });
+    }
+
     render() {
 
       return (
@@ -72,6 +82,7 @@ class App extends Component {
             toggleEditing={this.toggleEditing} 
             updateRecipe={this.updateRecipe}
             removeRecipe={this.removeRecipe}
+            addRecipe={this.addRecipe}
           />
 
         </div>

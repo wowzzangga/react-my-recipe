@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import {
-  Container, Item, Form
+  Container, Item, Form, Divider
 } from 'semantic-ui-react'
 
 import ListContent from './ListContent'
+import AddRecipeForm from './AddRecipeForm'
 
 class List extends Component {
 
@@ -48,6 +49,10 @@ class List extends Component {
           }
           </Item.Group>
         </Form>
+        
+        <Divider horizontal>+ Add New Recipe</Divider>
+
+        <AddRecipeForm addRecipe={this.props.addRecipe} />
       </Container>
     )
   }

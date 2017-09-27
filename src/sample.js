@@ -1,6 +1,6 @@
 // This is just some sample data so you don't have to think of your own!
 module.exports = {
-    recipe1: {
+    recipe_1: {
       title: 'Pacific Halibut',
       ingredient: [
         'Pacific Halibut',
@@ -12,28 +12,28 @@ module.exports = {
       tag: ['fish', 'tomato', 'western'],
     },
   
-    recipe2: {
+    recipe_2: {
       title: 'Lobster',
       ingredient: ['Lobster'],
       method: 'These tender, mouth-watering beauties are a fantastic hit at any dinner party.',
       tag: [''],
     },
   
-    recipe3: {
+    recipe_3: {
       title: 'Sea Scallops',
       ingredient: ['Sea Scallops'],
       method: 'Big, sweet and tender. True dry-pack scallops from the icey waters of Alaska. About 8-10 per pound',
       tag: ['fish', 'seafood', 'western'],      
     },
   
-    recipe4: {
+    recipe_4: {
       title: 'Mahi Mahi',
       ingredient: ['Mahi Mahi'],
       method: 'Lean flesh with a mild, sweet flavor profile, moderately firm texture and large, moist flakes. ',
       tag: ['fish', 'seafood', 'western'],  
     },
   
-    recipe5: {
+    recipe_5: {
       title: 'King Crab',
       ingredient: ['King Crab'],
       method: 'Crack these open and enjoy them plain or with one of our cocktail sauces',
