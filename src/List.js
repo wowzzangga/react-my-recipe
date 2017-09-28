@@ -53,7 +53,12 @@ class List extends Component {
         
         <Divider horizontal>+ Add New Recipe</Divider>
 
-        <AddRecipeForm addRecipe={this.props.addRecipe} addTags={this.props.addTags} tags={tags} />
+        <AddRecipeForm 
+          addRecipe={this.props.addRecipe} 
+          addTag={this.props.addTag} 
+          removeTag={this.props.removeTag}
+          tags={tags} 
+        />
       </Container>
     )
   }

@@ -73,7 +73,7 @@ class App extends Component {
       this.setState({ recipes });
     }
 
-    addTags = (tag) => {
+    addTag = (tag) => {
       const tags = [...this.state.tags];
       tags[tags.length] = tag
 
@@ -81,6 +81,15 @@ class App extends Component {
         tags: tags 
       })
     }
+
+    removeTag = (idx) => {
+      const tags = [...this.state.tags];
+      tags.splice(idx, 1);
+      
+      this.setState({ 
+        tags: tags 
+      })
+    };
 
     render() {
 
@@ -94,7 +103,8 @@ class App extends Component {
             updateRecipe={this.updateRecipe}
             removeRecipe={this.removeRecipe}
             addRecipe={this.addRecipe}
-            addTags={this.addTags}
+            addTag={this.addTag}
+            removeTag={this.removeTag}
             tags={this.state.tags}
           />
 

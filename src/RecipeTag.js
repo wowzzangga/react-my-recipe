@@ -8,8 +8,9 @@ class RecipeTag extends Component {
     return (
         <div>
         {
-            this.props.tags.map((tag) => 
-                <Label key={tag} as='a'>
+            this.props.tags.map((tag, idx) => 
+                <Label key={tag} as='a'
+                    onClick={(e) => this.props.removeTag(idx)}>
                     <Icon name='tag' />
                     {tag}
                     <Icon name='delete' />

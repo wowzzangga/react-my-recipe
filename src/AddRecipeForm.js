@@ -23,7 +23,7 @@ class AddRecipeForm extends Component {
       title: form.title.value,
       ingredient: [form.ingredient.value],
       method: form.method.value,
-      tag: [form.tag.value],
+      tag: this.props.tags,
     }
 
     this.props.addRecipe(recipe);
@@ -37,7 +37,7 @@ class AddRecipeForm extends Component {
       event.preventDefault();
 
       const tag = event.target.value
-      this.props.addTags(tag);
+      this.props.addTag(tag);
 
       event.target.value = '';
     }
@@ -76,10 +76,10 @@ class AddRecipeForm extends Component {
                 label='tags'
                 fluid
                 name='tag' 
-                placeholder='tags'
+                placeholder='Enter tags'
                 onKeyDown={ this.handleField }
               /> 
-              <RecipeTag tags={this.props.tags} />
+              <RecipeTag tags={this.props.tags} removeTag={this.props.removeTag} />
               <Button type='submit' primary floated='right'>
                   <Icon name="check" />
                   Add
