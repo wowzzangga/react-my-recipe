@@ -26,7 +26,7 @@ class List extends Component {
   }
 
   render() {
-    const { recipes, editId } = this.props;
+    const { recipes, editId, tags } = this.props;
 
     return (
       <Container text style={{ marginTop: '5em' }}>
@@ -43,6 +43,7 @@ class List extends Component {
                   removeRecipe={this.props.removeRecipe}
                   handleEditField={this.handleEditField}
                   editId={editId} 
+               
                 />
             </Item>
             )
@@ -52,7 +53,7 @@ class List extends Component {
         
         <Divider horizontal>+ Add New Recipe</Divider>
 
-        <AddRecipeForm addRecipe={this.props.addRecipe} />
+        <AddRecipeForm addRecipe={this.props.addRecipe} addTags={this.props.addTags} tags={tags} />
       </Container>
     )
   }

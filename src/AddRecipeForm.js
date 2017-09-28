@@ -3,7 +3,15 @@ import {
   Item, Form, Button, Icon
 } from 'semantic-ui-react'
 
+import RecipeTag from './RecipeTag'
+
+
 class AddRecipeForm extends Component {
+
+  constructor() {
+    super();
+    this.handleField = this.handleField.bind(this);
+  }
 
   createRecipe(event) {
     event.preventDefault();
@@ -19,9 +27,20 @@ class AddRecipeForm extends Component {
     }
 
     this.props.addRecipe(recipe);
-    
+
     // clear form
     form.reset();
+  }
+
+  handleField( event ) {
+    if ( event.which === 13 || event.keyCode === 13 ) {
+      event.preventDefault();
+
+      const tag = event.target.value
+      this.props.addTags(tag);
+
+      event.target.value = '';
+    }
   }
 
   render() {
@@ -58,7 +77,9 @@ class AddRecipeForm extends Component {
                 fluid
                 name='tag' 
                 placeholder='tags'
+                onKeyDown={ this.handleField }
               /> 
+              <RecipeTag tags={this.props.tags} />
               <Button type='submit' primary floated='right'>
                   <Icon name="check" />
                   Add

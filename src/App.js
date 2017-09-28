@@ -17,6 +17,8 @@ class App extends Component {
       this.state = {
         recipes : {},
         editId : null,
+        ingredients: [],
+        tags :[],
       }
     }
 
@@ -71,6 +73,15 @@ class App extends Component {
       this.setState({ recipes });
     }
 
+    addTags = (tag) => {
+      const tags = [...this.state.tags];
+      tags[tags.length] = tag
+
+      this.setState({ 
+        tags: tags 
+      })
+    }
+
     render() {
 
       return (
@@ -83,6 +94,8 @@ class App extends Component {
             updateRecipe={this.updateRecipe}
             removeRecipe={this.removeRecipe}
             addRecipe={this.addRecipe}
+            addTags={this.addTags}
+            tags={this.state.tags}
           />
 
         </div>
