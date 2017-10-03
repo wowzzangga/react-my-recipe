@@ -3,6 +3,7 @@ import {
   Item, Form, Button, Icon
 } from 'semantic-ui-react'
 
+import AddIngredient from './AddIngredient'
 import RecipeTag from './RecipeTag'
 
 
@@ -21,7 +22,7 @@ class AddRecipeForm extends Component {
     // make an array from input values
     const recipe = {
       title: form.title.value,
-      ingredient: [form.ingredient.value],
+      ingredient: this.props.ingredients,
       method: form.method.value,
       tag: this.props.tags,
     }
@@ -36,8 +37,15 @@ class AddRecipeForm extends Component {
     if ( event.which === 13 || event.keyCode === 13 ) {
       event.preventDefault();
 
-      const tag = event.target.value
-      this.props.addTag(tag);
+      const input = event.target.value;
+
+      if (event.target.name === 'tag') {
+        this.props.addTag(input);
+      
+      } else {
+        this.props.addIngredient(input);
+        
+      }
 
       event.target.value = '';
     }
@@ -50,7 +58,7 @@ class AddRecipeForm extends Component {
           <Item.Content>
             <Item.Description>
                 <Form.Input
-                    label='title'
+                    label='Title'
                     fluid
                     name='title' 
                     placeholder='title'
@@ -58,22 +66,28 @@ class AddRecipeForm extends Component {
             </Item.Description>
             <Item.Description>
                 <Form.Input
-                    label='ingredients'
+                    label='Ingredients'
                     fluid
                     name='ingredient' 
-                    placeholder='ingredients'
+                    placeholder='Enter ingredients'
+                    onKeyDown={ this.handleField }
                 /> 
+                <AddIngredient 
+                  ingredients={this.props.ingredients} 
+                  addIngredient={this.props.addIngredient}
+                  removeIngredient={this.props.removeIngredient}
+                  />
             </Item.Description>
             <Item.Description>
                 <Form.TextArea autoHeight
-                    label='method'
+                    label='Method'
                     name='method' 
                     placeholder='Method'
                 />
             </Item.Description>
             <Item.Extra>
               <Form.Input
-                label='tags'
+                label='Tags'
                 fluid
                 name='tag' 
                 placeholder='Enter tags'

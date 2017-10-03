@@ -95,6 +95,14 @@ class ListContent extends Component {
                         {details.method}
                     </Item.Description>
                     <Item.Extra className='recipe-list-container'>
+                        {tagData.map((tag) => 
+                            <Label key={tag}>
+                                <Icon name='tag' />
+                                {tag}
+                            </Label>
+                        )}
+                    </Item.Extra>
+                    <Item.Description className='recipe-list-container'>
                         <Button primary floated='right' onClick={() => this.props.removeRecipe(itemId)} >
                             <Icon name="trash" />
                             Delete
@@ -104,14 +112,7 @@ class ListContent extends Component {
                             <Icon name="edit" />
                             Edit
                         </Button>
-
-                        {tagData.map((tag) => 
-                            <Label key={tag}>
-                                <Icon name='tag' />
-                                {tag}
-                            </Label>
-                        )}
-                    </Item.Extra>
+                    </Item.Description>
                 </Item.Content>
             )
         }

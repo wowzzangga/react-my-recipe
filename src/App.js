@@ -70,8 +70,29 @@ class App extends Component {
       }
 
       recipes[`recipe_${idx}`] = recipe;
-      this.setState({ recipes });
+      const ingredients = [];
+      const tags = [];
+      
+      this.setState({ recipes, ingredients, tags });
     }
+
+    addIngredient = (ingredient) => {
+      const ingredients = [...this.state.ingredients];
+      ingredients[ingredients.length] = ingredient
+
+      this.setState({ 
+        ingredients: ingredients 
+      })
+    }
+
+    removeIngredient = (idx) => {
+      const ingredients = [...this.state.ingredients];
+      ingredients.splice(idx, 1);
+
+      this.setState({ 
+        ingredients: ingredients 
+      })
+    };
 
     addTag = (tag) => {
       const tags = [...this.state.tags];
@@ -85,7 +106,7 @@ class App extends Component {
     removeTag = (idx) => {
       const tags = [...this.state.tags];
       tags.splice(idx, 1);
-      
+
       this.setState({ 
         tags: tags 
       })
@@ -103,11 +124,13 @@ class App extends Component {
             updateRecipe={this.updateRecipe}
             removeRecipe={this.removeRecipe}
             addRecipe={this.addRecipe}
+            addIngredient={this.addIngredient}
+            removeIngredient={this.removeIngredient}
             addTag={this.addTag}
             removeTag={this.removeTag}
+            ingredients={this.state.ingredients}
             tags={this.state.tags}
           />
-
         </div>
       );
     }

@@ -15,7 +15,7 @@ class MenuBar extends Component {
                         <Icon name='food' />My Recipe
                     </Menu.Item>
                     <Menu.Item position='right' onClick={this.props.loadSamples} >
-                        <Icon name='edit' />
+                        <Icon name='arrow circle outline down' />
                     </Menu.Item>
                 </Container>
             </Menu>
