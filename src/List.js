@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import {
-  Container, Item, Form, Divider
+  Item, Form
 } from 'semantic-ui-react'
 
 import ListContent from './ListContent'
-import AddRecipeForm from './AddRecipeForm'
 
 class List extends Component {
 
@@ -26,10 +25,10 @@ class List extends Component {
   }
 
   render() {
-    const { recipes, editId, tags, ingredients } = this.props;
+    const { recipes, editId } = this.props;
 
     return (
-      <Container text style={{ marginTop: '5em' }}>
+      
         <Form size="large">
           <Item.Group divided>
           {
@@ -43,26 +42,12 @@ class List extends Component {
                   removeRecipe={this.props.removeRecipe}
                   handleEditField={this.handleEditField}
                   editId={editId} 
-               
                 />
             </Item>
             )
           }
           </Item.Group>
         </Form>
-        
-        <Divider horizontal>+ Add New Recipe</Divider>
-
-        <AddRecipeForm 
-          addRecipe={this.props.addRecipe} 
-          addIngredient={this.props.addIngredient}
-          removeIngredient={this.props.removeIngredient}
-          addTag={this.props.addTag} 
-          removeTag={this.props.removeTag}
-          ingredients={ingredients}
-          tags={tags} 
-        />
-      </Container>
     )
   }
 }

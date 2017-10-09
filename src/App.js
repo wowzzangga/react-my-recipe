@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import Samples from './sample'
 import List from './List'
 import MenuBar from './Menu'
+import AddRecipeForm from './AddRecipeForm'
+
 import base from './base'
+import { Container, Divider } from 'semantic-ui-react'
 
 import './App.css';
 
@@ -72,7 +75,7 @@ class App extends Component {
       recipes[`recipe_${idx}`] = recipe;
       const ingredients = [];
       const tags = [];
-      
+
       this.setState({ recipes, ingredients, tags });
     }
 
@@ -116,21 +119,28 @@ class App extends Component {
 
       return (
         <div>
-          <MenuBar loadSamples={this.loadSamples} />        
+          <MenuBar loadSamples={this.loadSamples} />  
+          <Container text style={{ marginTop: '5em' }}>      
           <List
             recipes={this.state.recipes} 
             editId={this.state.editId} 
             toggleEditing={this.toggleEditing} 
             updateRecipe={this.updateRecipe}
             removeRecipe={this.removeRecipe}
-            addRecipe={this.addRecipe}
+          />
+                  
+          <Divider horizontal>+ Add New Recipe</Divider>
+        
+          <AddRecipeForm 
+            addRecipe={this.addRecipe} 
             addIngredient={this.addIngredient}
             removeIngredient={this.removeIngredient}
-            addTag={this.addTag}
+            addTag={this.addTag} 
             removeTag={this.removeTag}
             ingredients={this.state.ingredients}
-            tags={this.state.tags}
+            tags={this.state.tags} 
           />
+          </Container>
         </div>
       );
     }
